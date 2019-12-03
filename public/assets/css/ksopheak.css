@@ -1,0 +1,54 @@
+.myButton {
+    margin-top: 16px;
+    margin-left:20px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: -webkit-match-parent;
+	box-shadow: 0px 0px 5px -1px #d0327c;
+	background-color: white;
+	border-radius:28px;
+	border:1px solid #d0327c;
+    /* text-shadow:0px 0px 2px #d0327c; */
+}
+.myButton a{
+    color:#d0327c;
+    text-decoration: none;
+}
+
+.myButtonLogIn {
+    margin-top: 16px;
+    margin-left:20px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: -webkit-match-parent;
+	box-shadow: 0px 0px 5px -1px #3242d0;
+	background-color: white;
+	border-radius:28px;
+	border:1px solid #3242d0;
+    /* text-shadow:0px 0px 2px #d0327c; */
+}
+
+.margin-10-0 {
+    margin: 10px 0px;
+}
+
+.margin-25-0 {
+    margin: 25px 0px;
+}
+.custom-table{display: block;border-collapse:collapse;width:100%;border:solid 1px #c0c0c0;font-family:open sans;font-size:11px}
+.custom-table th,.custom-table td{text-align:left;padding:8px;border:solid 1px #c0c0c0}
+.custom-table th{color:#000080}
+.custom-table tr:nth-child(odd){background-color:#f7f7ff}
+.custom-table>thead>tr{background-color:#dde8f7!important}
+.tbtn{border:0;outline:0;background-color:transparent;font-size:13px;cursor:pointer}
+.toggler{display:none}
+.toggler1{display:table-row;}
+.custom-table a{color: #0033cc;}
+.custom-table a:hover{color: #f00;}
+.page-header{background-color: #eee;}
+
+.custom{display: block !important;}
