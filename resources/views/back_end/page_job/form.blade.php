@@ -68,13 +68,13 @@
         <label for="title_jp">Duties</label>
 
         <textarea class="form-control border-right radius-right-10 duties" id="duties" required
-                  name="duties[]"></textarea>
+                  name="duties[]">N/A</textarea>
 
     </div>
     <div class="col-md-12 col-sm-12 col-lg-12 text-left">
         <label for="title_jp">Requirement</label>
 
         <textarea class="form-control border-right radius-right-10 requirement" id="requirement" required
-                  name="requirement[]"></textarea>
+                  name="requirement[]">N/A</textarea>
     </div>
 </div>

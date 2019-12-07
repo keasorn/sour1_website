@@ -101,34 +101,46 @@ class JobController extends Controller
     public function store(Request $request)
     {
 
-//        return $request->all();
 
-        $data = $this->fillColumn($request);
+        $datas = $this->fillColumn($request);
+//        return $datas;
+        foreach ($datas as $data){
 //
         Job::create($data);
+        }
 //
         return redirect()->intended('/so-manage/job');
     }
     function fillColumn(Request $request)
     {
 
+
+
+
         $myUt = new MyUtility();
         $i = 0;
-        $data = array(
-            'title' => $request['title'][$i],
-            'number_vacancies' => $request['number_vacancies'][$i],
-            'job_type' => $request['job_type'][$i],
-            'job_level' => $request['job_level'][$i],
-            'pow' => $request['pow'][$i],
-            'salary' => $request['salary'][$i],
-            'closing_date' => $myUt::toMySqlDateHtml($request['closing_date'][$i]),
-            'publication' => 1,
-            'duties' => $request['duties'][$i],
-            'note' => "",
-            'requirement' => $request['requirement'][$i],
-            'status' => 0,
-            'user' => session()->get("user")->id,
-        );
+        $data = array();
+
+        foreach ($request->title as $key => $value) {
+            $myArr = array(
+                'title' => $request['title'][$i],
+                'number_vacancies' => $request['number_vacancies'][$i],
+                'job_type' => $request['job_type'][$i],
+                'job_level' => $request['job_level'][$i],
+                'pow' => $request['pow'][$i],
+                'salary' => $request['salary'][$i],
+                'closing_date' => $myUt::toMySqlDateHtml($request['closing_date'][$i]),
+                'publication' => 1,
+                'duties' => $request['duties'][$i],
+                'note' => "",
+                'requirement' => $request['requirement'][$i],
+                'status' => 0,
+                'user' => session()->get("user")->id,
+            );
+            $data[$i] = $myArr;
+            $i++;
+        }
+
         return $data;
     }
 
@@ -138,6 +150,7 @@ class JobController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
+
     function uploadImg(Request $request, $file_name, $path)
     {
         $name = "";

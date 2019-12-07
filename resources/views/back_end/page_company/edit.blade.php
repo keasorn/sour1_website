@@ -2,12 +2,24 @@
 @section('content')
     <!-- Main content -->
     <!-- Main jumbotron for a primary marketing message or call to action -->
-    <section class="main-banner" style="background:#242c36 url(/assets/img/slider-01.jpg) no-repeat">
+    <section class="main-banner">
 
         <div class="container border-shadow">
+
             <div class="margin-25-0">
+
                 <form action="{{ route('my-account.update', ['id' => $company->id]) }}" method="POST"
                       enctype="multipart/form-data">
+                    <div class="col-md-12 text-center">
+                        <div class="cycle-150-border">
+                            <label for="img_profile">
+                                <img class="img-cycle" id="img-cycle" src="/assets/img/logo/smart.jpg" alt="">
+
+                                <input type="file" class="image-upload" name="img_profile" id="img_profile"
+                                       accept="image/*" style="display: none"/>
+                            </label>
+                        </div>
+                    </div>
                     {{ csrf_field() }}
                     <h3 class="text-left">Contact Person</h3>
                     <hr>
@@ -36,16 +48,12 @@
                                name="cp_phone" id="cp_phone"
                                placeholder="Enter" value="{{$company->cp_phone}}">
                     </div>
-
-
                     <div class="col-md-6 col-sm-12 col-lg-6 text-left">
                         <label for="cp_email">Email *</label>
                         <input type="text" class="form-control border-right radius-right-10" required
                                name="cp_email" id="cp_email"
                                placeholder="Enter" value="{{$company->cp_email}}">
                     </div>
-
-
                     <div class="col-md-4 col-sm-12 col-lg-4 text-left">
                         <label for="title_jp">Nationality *</label>
                         <input type="text" class="form-control  border-right radius-right-10" required name="cp_nation"
@@ -65,7 +73,6 @@
                         </div>
 
                     </div>
-
                     <div class="col-md-12 col-sm-12 col-lg-12 text-left">
                         <label for="cp_address">Current Address</label>
                         <input type="text" class="form-control border-right radius-right-10" required
@@ -103,10 +110,8 @@
                                name="com_tel" id="com_tel"
                                placeholder="Enter" value="{{$company->com_tel}}">
                     </div>
-
-
                     <div class="col-md-6 col-sm-12 col-lg-6 text-left">
-                        <label for="com_phone">Mobile Phone Number  *</label>
+                        <label for="com_phone">Mobile Phone Number *</label>
                         <input type="text" class="form-control border-right radius-right-10" required
                                name="com_phone" id="com_phone"
                                placeholder="Enter" value="{{$company->com_phone}}">
@@ -117,10 +122,8 @@
                                name="com_email" id="com_email"
                                placeholder="Enter" value="{{$company->com_email}}">
                     </div>
-
-
                     <div class="col-md-6 col-sm-12 col-lg-6 text-left">
-                        <label for="com_web">Website  *</label>
+                        <label for="com_web">Website *</label>
                         <input type="text" class="form-control border-right radius-right-10" required
                                name="com_web" id="com_web"
                                placeholder="Enter" value="{{$company->com_web}}">
@@ -129,7 +132,8 @@
                     <div class="col-md-12 col-sm-12 col-lg-12 text-left">
                         <label for="title_jp">Summary about your company / Organization *</label>
 
-                        <textarea class="form-control border-right radius-right-10" id="com_description" required name="com_description">{{$company->com_description}}</textarea>
+                        <textarea class="form-control border-right radius-right-10" id="com_description" required
+                                  name="com_description">{{$company->com_description}}</textarea>
 
                     </div>
 
@@ -140,7 +144,6 @@
                         <br>
                         <br>
                     </div>
-
                 </form>
             </div>
         </div>
@@ -154,8 +157,28 @@
     <!-- include summernote css/js -->
     <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
+
+
     <script>
         $(document).ready(function () {
+
+
+            $('#img_profile').change(function () {
+                var input = this;
+                var url = $(this).val();
+                var ext = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
+                if (input.files && input.files[0] && (ext == "gif" || ext == "png" || ext == "jpeg" || ext == "jpg")) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $('#img-cycle').attr('src', e.target.result);
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+                else {
+                    $('#img-cycle').attr('src', '/assets/img/no_preview.png');
+                }
+            });
             $('#requirement').summernote({
                 placeholder: 'Type here ...',
                 tabsize: 2,

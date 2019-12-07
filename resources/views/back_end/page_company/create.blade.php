@@ -57,19 +57,11 @@
                            id="closing_date"
                            placeholder="Enter">
                 </div>
-                <div class="col-md-4 col-sm-12 col-lg-4 text-left">
-                    <label for="title_ch">Publication</label>
-                    <select class="form-control border-right radius-right-10" data-show-icon="true" id="publication"
-                            required name="publication">
-                        <option>SELECT</option>
-                        <option value="0">Unpublic</option>
-                        <option value="1">Public</option>
-                    </select>
-                </div>
+
                 <div class="col-md-12 col-sm-12 col-lg-12 text-left">
                     <label for="title_jp">Duties</label>
 
-                    <textarea class="form-control border-right radius-right-10" id="duties" required name="duties"></textarea>
+                    <textarea class="form-control border-right radius-right-10" id="duties" required name="duties">N/A</textarea>
 
                 </div>
                 <div class="col-md-12 col-sm-12 col-lg-12 text-left">
@@ -77,12 +69,7 @@
 
                     <textarea class="form-control border-right radius-right-10" id="requirement" required name="requirement"></textarea>
 
-                </div>
-                <div class="col-md-12 col-sm-12 col-lg-12 text-left">
-                    <label for="title_jp">Note</label>
-                    <textarea class="form-control border-right radius-right-10" id="note" required name="note"></textarea>
-
-                </div>
+                </div> 
                 <div class="col-md-12 col-sm-12 col-lg-12 text-right">
                     <button type="submit" class="myButton">Save</button>
                     <br>
